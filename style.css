@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Use the url for the bird mouse cursor and set the backup to default*/
+  cursor: url(./cursor.png), default;
+  background-color: #c0c86d;
+}
+
+.bg {
+  background-image: url(./background.png);
+  background-repeat: no-repeat;
+  /* setting the height and width to make the work easier amd also working with the assumption that my users will be playing this game on a desktop rather than a mobile */
+  width: 1920px;
+  height: 1080px;
+  /* next to get the moles into a row, we use flebox and wrap to cover for extensions */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
