@@ -12,7 +12,7 @@ const moles = [
         node: document.querySelector('#hole-0') //se;ecting the node
     }, 
     {
-    //paste for the other different holes
+
     status: "sad", 
     next: getSadInterval(), 
     king: false, 
@@ -22,55 +22,60 @@ const moles = [
         status: "sad", 
         next: getSadInterval(), 
         king: false, 
-        node: document.querySelector('#hole-1')
+        node: document.querySelector('#hole-2')
+    }, 
+    {
+        status: "sad", 
+        next: getSadInterval(), 
+        king: false, 
+        node: document.querySelector('#hole-3')
         }, 
         {
-            //paste for the other different holes
-            status: "sad", 
-            next: getSadInterval(), 
-            king: false, 
-            node: document.querySelector('#hole-1')
-            }, 
-            {
-                //paste for the other different holes
-                status: "sad", 
-                next: getSadInterval(), 
-                king: false, 
-                node: document.querySelector('#hole-1')
-                }, 
-                {
-                    //paste for the other different holes
-                    status: "sad", 
-                    next: getSadInterval(), 
-                    king: false, 
-                    node: document.querySelector('#hole-1')
-                    }, 
-                    {
-                        //paste for the other different holes
-                        status: "sad", 
-                        next: getSadInterval(), 
-                        king: false, 
-                        node: document.querySelector('#hole-1')
-                        }, 
-                        {
-                            //paste for the other different holes
-                            status: "sad", 
-                            next: getSadInterval(), 
-                            king: false, 
-                            node: document.querySelector('#hole-1')
-                            }, 
-                            {
-                                //paste for the other different holes
-                                status: "sad", 
-                                next: getSadInterval(), 
-                                king: false, 
-                                node: document.querySelector('#hole-1')
-                                }, 
-                                {
-                                    //paste for the other different holes
-                                    status: "sad", 
-                                    next: getSadInterval(), 
-                                    king: false, 
-                                    node: document.querySelector('#hole-1')
-                                    }, 
+        
+        status: "sad", 
+        next: getSadInterval(), 
+        king: false, 
+        node: document.querySelector('#hole-4')
+        }, 
+        {
+        status: "sad", 
+        next: getSadInterval(), 
+        king: false, 
+        node: document.querySelector('#hole-5')
+        }, 
+        {
+        status: "sad", 
+        next: getSadInterval(), 
+        king: false, 
+        node: document.querySelector('#hole-6')
+        }, 
+        {
+                    
+        status: "sad", 
+        next: getSadInterval(), 
+        king: false, 
+        node: document.querySelector('#hole-7')
+        }, 
+        {
+        status: "sad", 
+        next: getSadInterval(), 
+        king: false, 
+        node: document.querySelector('#hole-8')
+        }, 
+        {
+        status: "sad", 
+        next: getSadInterval(), 
+        king: false, 
+        node: document.querySelector('#hole-9')
+        }, 
 ]
+
+// we write a function for the time to make it move at intervals
+let runAgainAt = Date.now() + 100;
+function nextFrame() {
+    const now = Date.now();
+
+    if (runAgainAt <= now) {
+        console.log('now');
+    }
+}
