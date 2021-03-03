@@ -77,5 +77,9 @@ function nextFrame() {
 
     if (runAgainAt <= now) {
         console.log('now');
+        runAgainAt = now + 100;
     }
+    requestAnimationFrame(nextFrame);
 }
+
+nextFrame();
