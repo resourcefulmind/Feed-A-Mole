@@ -3,6 +3,11 @@ function getSadInterval() {
     return Date.now() + 1000;
 }
 
+function getGoneInterval () {
+    // this function is written to get random times which the mole will be gone for
+    return Date.now() + Math.floor(Math.random() * 18000) * 2000;
+}
+
 // Create an object that represents each one of the moles
 const moles = [
     {
@@ -68,7 +73,19 @@ const moles = [
         king: false, 
         node: document.querySelector('#hole-9')
         }, 
-]
+];
+
+function getNextStatus(mole) {
+    switch (mole.status) {
+        case "sad":
+            mole.next = getSadInterval();
+            mole.status = "leaving";
+            mole.node.src = './mole-leaving.png';
+            break;
+        case "leaving":
+            mole.next = 
+    }
+}
 
 // we write a function for the time to make it move at intervals
 let runAgainAt = Date.now() + 100;
@@ -76,10 +93,15 @@ function nextFrame() {
     const now = Date.now();
 
     if (runAgainAt <= now) {
-        console.log('now');
+        for(let i = 0; i < moles.length; i++) {
+            if (moles[i].next <= now) {
+                getNextStatus(moles[i]);
+            }
+        }
         runAgainAt = now + 100;
     }
     requestAnimationFrame(nextFrame);
 }
+
 
 nextFrame();
