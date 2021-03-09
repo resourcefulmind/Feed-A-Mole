@@ -108,6 +108,12 @@ function getNextStatus(mole) {
     }
 }
 
+function feed(event) {
+    if (event.target.tagName  !== 'IMG' || !event.target.classList.contains("hungry")) {
+        return;
+    }
+}
+
 // we write a function for the time to make it move at intervals
 let runAgainAt = Date.now() + 100;
 function nextFrame() {
@@ -124,5 +130,6 @@ function nextFrame() {
     requestAnimationFrame(nextFrame);
 }
 
+document.querySelector('.bg').addEventListener('click', feed);
 
 nextFrame();
