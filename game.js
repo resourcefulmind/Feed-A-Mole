@@ -112,7 +112,14 @@ function feed(event) {
     if (event.target.tagName  !== 'IMG' || !event.target.classList.contains("hungry")) {
         return;
     }
-    console.log(event.target);
+
+    const mole = moles[parseInt(event.target.dataset.index)]
+
+    mole.status = 'fed';
+    mole.next = getSadInterval();
+    mole.node.children[0].src = './mole-fed.png';
+    mole.node.children[0].remove = 'hungry';
+
 }
 
 // we write a function for the time to make it move at intervals
