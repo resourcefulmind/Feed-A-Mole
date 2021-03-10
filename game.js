@@ -83,6 +83,7 @@ const moles = [
 function getNextStatus(mole) {
     switch (mole.status) {
         case "sad":
+        case "fed":
             mole.next = getSadInterval();
             mole.status = "leaving";
             mole.node.children[0].src = './mole-leaving.png';
@@ -118,7 +119,7 @@ function feed(event) {
     mole.status = 'fed';
     mole.next = getSadInterval();
     mole.node.children[0].src = './mole-fed.png';
-    mole.node.children[0].remove = 'hungry';
+    mole.node.children[0].classList.remove = 'hungry';
 
 }
 
