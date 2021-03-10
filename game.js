@@ -152,7 +152,9 @@ function feed(event) {
         win();
     }
 
+    document.querySelector('.worm-container').style.width = `${10 * score}%`;
 }
+
 
 // we will create the win function below
 function win() {
