@@ -112,6 +112,7 @@ function feed(event) {
     if (event.target.tagName  !== 'IMG' || !event.target.classList.contains("hungry")) {
         return;
     }
+    console.log(event.target);
 }
 
 // we write a function for the time to make it move at intervals
