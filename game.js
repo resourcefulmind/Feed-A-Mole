@@ -1,3 +1,6 @@
+let score = 0;
+
+
 // Create a function that generates the times for you
 function getSadInterval() {
     return Date.now() + 1000;
@@ -119,8 +122,19 @@ function feed(event) {
     mole.status = 'fed';
     mole.next = getSadInterval();
     mole.node.children[0].src = './mole-fed.png';
-    mole.node.children[0].classList.remove = 'hungry';
+    mole.node.children[0].remove = 'hungry';
 
+    score++;
+    if (score >= 10) {
+        win();
+    }
+
+}
+
+// we will create the win function below
+function win() {
+    document.querySelector('.bg').classList.add("hide");
+    document.querySelector('.win').classList.remove("hide");
 }
 
 // we write a function for the time to make it move at intervals
