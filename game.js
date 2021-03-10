@@ -16,6 +16,10 @@ function getHungryInterval() {
 
 }
 
+function getKingStatus() {
+    return Math.random() > .9;
+}
+
 // Create an object that represents each one of the moles
 const moles = [
     {
@@ -89,7 +93,11 @@ function getNextStatus(mole) {
         case "fed":
             mole.next = getSadInterval();
             mole.status = "leaving";
-            mole.node.children[0].src = './mole-leaving.png';
+            if (mole.king) {
+                mole.node.children[0].src = './king-mole-leaving.png';
+            } else {
+                mole.node.children[0].src = './mole-leaving.png';
+            }
             break;
         case "leaving":
             mole.next = getGoneInterval();
@@ -98,16 +106,26 @@ function getNextStatus(mole) {
             break;
         case "gone":
             mole.status = 'hungry';
+            mole.king = getKingStatus();
             mole.next = getHungryInterval();
             mole.node.children[0].classList.add("hungry");
             mole.node.children[0].classList.remove("gone");
-            mole.node.children[0].src = './mole-hungry.png';
+            if (mole.king) {
+                mole.node.children[0].src = './king-mole-hungry.png';
+            } else {
+                mole.node.children[0].src = './mole-hungry.png';
+            }
             break;
         case "hungry":
             mole.status = 'sad';
             mole.next = getSadInterval();
             mole.node.children[0].classList.remove("hungry");
-            mole.node.children[0].src = './mole-sad.png';
+            if (mole.king) {
+                mole.node.children[0].src = './king-mole-sad.png';
+            } else {
+                mole.node.children[0].src = './mole-sad.png';
+            }
+            
             break;
     }
 }
@@ -121,7 +139,12 @@ function feed(event) {
 
     mole.status = 'fed';
     mole.next = getSadInterval();
+    if (mole.king) {
+        score += 2;
+        mole.node.children[0].src = './king-mole-fed.png';
+    } else {
     mole.node.children[0].src = './mole-fed.png';
+    }
     mole.node.children[0].remove = 'hungry';
 
     score++;
